@@ -1,5 +1,5 @@
 ﻿$(function () {
-    console.log('teste controller');
+    //console.log('teste controller');
 });
 
 function openPage(pg) {
