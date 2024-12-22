@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Helping Animals</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <!-- Meterial Icon CSS -->
+    <link rel="stylesheet" href="assets/css/materialdesignicons.min.css">
+    <!-- Material CSS -->
+    <link rel="stylesheet" href="assets/css/material.min.css">
+    <!-- Ripples CSS -->
+    <link rel="stylesheet" href="assets/css/ripples.min.css">
+    <!-- Owl Carousel CSS -->
+    <link rel="stylesheet" href="assets/css/owl.carousel.css">
+    <!-- Magnific Popup -->
+    <link rel="stylesheet" href="assets/css/magnific-popup.css">
+    <!-- Slicknav CSS -->
+    <link rel="stylesheet" href="assets/css/slicknav.css">
+    <!-- Animate CSS -->
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <!--Font Awesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- SweetAlert2 CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+
+    <!-- Color CSS Styles  -->
+    <link rel="stylesheet" type="text/css" href="assets/css/colors/indigo.css" media="screen" />
+    <style>
+
+        /*AJUSTES LOGO*/
+        .custom-alignment {
+            display: flex;
+            align-items: center; /* Centraliza verticalmente o ícone e o texto */
+            justify-content: space-between; /* Garante que o texto fique à direita */
+        }
+
+        .icon-container {
+            display: inline-block;
+        }
+
+        .text-container {
+            display: inline-block; /* Mantém o texto ao lado do ícone */
+            white-space: nowrap; /* Impede a quebra de linha */
+        }
+
+        .helping-animals-text {
+            font-family: Montserrat;
+            font-size: 30px;
+            font-weight: bold;
+            color: #000;
+            text-shadow: 0px 0px 5px rgba(255, 255, 255, 0.2);
+        }
+        /*AJUSTES LOGO*/
+
+
+        /*.banner-background {
+            background-image: url('images/backgroundBanner.jpeg');
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            height: 500px;
+            color: #ffffff;
+            display: flex;*/
+            /*justify-content: center;
+            align-items: center;*/
+            /*flex-direction: column;
+        }*/
+
+        /*BANNER*/
+        .banner-background {
+            position: relative;
+            background-image: url('images/backgroundBanner.jpeg');
+            background-size: cover;
+            background-position: center center;
+            height: 400px;
+            color: #ffffff;
+        }
+
+            .banner-background .container {
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+                align-items: center;
+            }
+
+            .banner-background h2 {
+                font-size: 48px;
+                font-weight: bold;
+                color: #ffffff;
+                text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+                animation: fadeIn 2s ease-in-out;
+            }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+        /*BANNER*/
+
+
+        /* Estilos personalizados para o efeito hover */
+        .btn-custom {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+            /* Efeito ao passar o mouse no botão */
+            .btn-custom:hover {
+                transform: scale(1.05); /* Aumenta ligeiramente o tamanho */
+                box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3); /* Adiciona uma sombra */
+            }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+        }
+
+        .modal-content {
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .payment-options {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+
+            .payment-options label {
+                display: block;
+                text-align: center;
+                padding: 10px;
+                background-color: #007bff;
+                color: #ffffff;
+                border-radius: 8px;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+            }
+
+            .payment-options input {
+                display: none;
+            }
+
+            .payment-options label:hover {
+                background-color: #0056b3;
+            }
+
+        .payment-form {
+            display: none;
+            margin-top: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+            .form-group label {
+                display: block;
+                margin-bottom: 5px;
+            }
+
+            .form-group input {
+                width: 100%;
+                padding: 10px;
+                border: 1px solid #ced4da;
+                border-radius: 5px;
+            }
+
+        .qrcode-container {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 12px;
+            background-color: #28a745 !important; /* Cor de sucesso do Bootstrap 4 */
+            color: #ffffff !important; /* Texto branco */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+            /* Sobrescreve qualquer mudança de cor no hover */
+            .btn-submit:hover {
+                background-color: #28a745 !important; /* Garante que a cor de fundo não mude */
+                color: #ffffff !important; /* Garante que o texto permaneça branco */
+                transform: translateY(-3px); /* Move o botão ligeiramente para cima */
+                box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra leve */
+            }
+
+        .featured-image img {
+            object-fit: cover;
+            height: 500px; /* Defina a altura desejada */
+            width: 100%; /* Mantém a largura responsiva */
+        }
+
+        a[title] {
+            position: relative;
+        }
+
+            a[title]:hover::after {
+                content: attr(title);
+                position: absolute;
+                background-color: #333;
+                color: #fff;
+                padding: 10px;
+                border-radius: 5px;
+                top: 100%;
+                left: 50%;
+                transform: translateX(-50%);
+                z-index: 1;
+            }
+
+
+    </style>
+</head>
+<body>
+
+    <!-- Header Start -->
+    <header id="header">
+        <nav class="navbar navbar-expand-lg <!--fixed-top--> scrolling-navbar nav-bg">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <div class="col-md-6 col-lg-3 col-xl-3 wow animated fadeInUp custom-alignment" data-wow-delay=".2s">
+                        <div class="about-single icon-container">
+                            <i id="btn_logo" class="fas fa-paw"></i>
+                        </div>
+                        <div class="text-container">
+                            <h3 class="helping-animals-text">Helping Animals</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="collapse navbar-collapse" id="main-navbar">
+                    <ul class="navbar-nav mr-auto w-100 justify-content-end">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="index.html">
+                                Home
+                            </a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#div_doacao" id="doacao-link">
+                                Doação
+                            </a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#animalsHelped" onclick="scrollToSection(event, 'animalsHelped')">
+                                PET's
+                            </a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link" href="#contato" onclick="scrollToSection(event, 'contato')">
+                                Contato
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+
+            <!--BOTÔES NAV BAR-->
+            <ul class="wpb-mobile-menu">
+                <li>
+                    <a class="nav-link" href="index.html">
+                        Home
+                    </a>
+                </li>
+                <li>
+                    <a class="nav-link dropdown-toggle" href="#div_doacao" id="doacao-link-mobile">
+                        Doação
+                    </a>
+                </li>
+                <li>
+                    <a class="nav-link dropdown-toggle" href="#animalsHelped" onclick="scrollToSection(event, 'animalsHelped')">
+                        PET's
+                    </a>
+                </li>
+                <li>
+                    <a class="nav-link" href="#contato" onclick="scrollToSection(event, 'contato')">
+                        Contato
+                    </a>
+                </li>
+            </ul>
+            <!--BOTÔES NAV BAR-->
+        </nav>
+    </header>
+    <!-- Header End -->
+    <!-- BANNER PRINCIPAL -->
+    <section class="banner-background">
+        <div class="container">
+            <div class="row justify-content-between mt-5 align-items-end">
+                <div class="col-md-12 text-center wow animated fadeInLeft" data-wow-delay=".2s">
+                    <h2>Cuidando, protegendo e transformando vidas.</h2>
+                </div>
+                <div class="col-md-12 text-center wow animated fadeInRight" data-wow-delay=".3s">
+                    <button id="btn_doarAgora" rel="nofollow" target="_blank" class="animated4 btn btn-common">
+                        <i class="fas fa-heart"></i> DOAR AGORA
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <!-- BANNER PRINCIPAL -->
+    <!-- MISSÂO, VISÃO, VALORES  -->
+    <section class="Material-about-section section-padding">
+        <div class="container">
+            <div class="row">
+
+                <!--MISSÂO-->
+                <div class="col-md-6 col-lg-3 col-xl-3 wow animated fadeInUp" data-wow-delay=".3s">
+                    <div class="about-single">
+                        <i class="fas fa-bullseye"></i>
+                        <h2 class="subtitle">Missão</h2>
+                        <p>Resgatar e cuidar de animais em situação de risco, proporcionando uma nova chance para que encontrem lares amorosos e dignos.</p>
+                    </div>
+                </div>
+                <!--MISSÂO-->
+                <!--VISÃO-->
+                <div class="col-md-6 col-lg-3 col-xl-4 wow animated fadeInUp" data-wow-delay=".4s">
+                    <div class="about-single">
+                        <i class="fa fa-eye" aria-hidden="true"></i>
+                        <h2 class="subtitle">Visão</h2>
+                        <p>Ser uma referência em proteção animal, promovendo respeito, conscientização e adoção responsável, e construindo um mundo onde todos os animais sejam valorizados.</p>
+                    </div>
+                </div>
+                <!--VISÃO-->
+                <!--VALORES-->
+                <div class="col-md-6 col-lg-3 col-xl-5 wow animated fadeInUp" data-wow-delay=".5s">
+                    <div class="about-single">
+                        <i class="fas fa-star"></i>
+                        <h2 class="subtitle">Valores</h2>
+                        <span class="text-left"><b>Compaixão:</b>Valorizamos cada vida animal.</span><br />
+                        <span class="text-left"><b>Respeito à Vida:</b>Tratamos todos os animais com dignidade.</span><br />
+                        <span class="text-center"><b>Transparência:</b> Prestamos contas de nossos recursos.</span>
+                    </div>
+                </div>
+                <!--VALORES-->
+
+            </div>
+        </div>
+    </section>
+    <!-- MISSÂO, VISÃO, VALORES  -->
+    <!-- Welcome Section Start -->
+    <section class="welcome-section section-padding section-dark">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-lg-12 col-xs-12">
+
+                    <div class="Material-tab">
+                        <!-- Nav tabs -->
+                        <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#ong" role="tab">
+                                    <i class="fas fa-users"></i><br />ONG
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#eventos" role="tab">
+                                    <i class="fas fa-calendar-alt"></i><br />Eventos
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#doacao" role="tab">
+                                    <i class="fas fa-handshake"></i><br />Doação
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" data-toggle="tab" href="#comoDoar" role="tab">
+                                    <i class="fas fa-hand-holding-heart"></i><br />Como doar?
+                                </a>
+                            </li>
+                        </ul>
+                        <!-- Tab panes -->
+                        <div class="tab-content">
+                            <div class="tab-pane fade" id="ong" role="tabpanel">
+                                <p class="text-center">Helping Animals é uma organização não governamental (ONG) dedicada à proteção e bem-estar dos animais, focando na assistência a animais em situação de rua, abandono e maus-tratos. A missão principal da Helping Animals é promover a conscientização sobre os direitos dos animais, fornecer cuidados médicos, alimentação e abrigo para animais necessitados, além de atuar na adoção responsável e na educação da sociedade para o respeito e proteção à vida animal.</p>
+                            </div>
+                            <div class="tab-pane fade" id="eventos" role="tabpanel">
+                                <p class="text-center">
+                                    Organizamos a feira de castração com muito cuidado e dedicação. Primeiro, definimos um local seguro e acessível, montando toda a estrutura necessária para atender os animais. Divulgamos o evento nas redes sociais e pela comunidade, incentivando tutores a se inscreverem. No dia, recebemos os animais com uma triagem inicial, feita por veterinários parceiros, para garantir que estão aptos ao procedimento. Após a cirurgia, entregamos orientações sobre os cuidados pós-operatórios e ficamos disponíveis para dúvidas. Nosso objetivo é ajudar tutores e contribuir para o controle populacional de forma acessível e responsável.
+                                </p>
+                            </div>
+                            <div class="tab-pane fade" id="doacao" role="tabpanel">
+                                <p class="text-center">
+                                    Ao doar para nossa ONG, você está transformando a vida de animais que dependem de cuidados essenciais para sobreviver. Suas contribuições nos permitem resgatar animais em situação de risco, oferecer atendimento veterinário, promover feiras de adoção e campanhas de castração, além de conscientizar a comunidade sobre a importância do bem-estar animal. Cada doação, seja grande ou pequena, faz uma diferença direta, ajudando a reduzir o abandono, combater maus-tratos e proporcionar uma vida digna para aqueles que mais precisam. Juntos, podemos criar um futuro melhor para os animais!
+                                </p>
+                            </div>
+                            <div class="tab-pane fade show active" id="comoDoar" role="tabpanel">
+                                <!-- Primeira Opção: Doação em Dinheiro -->
+                                <div class="doacao-opcao" style="text-align: center; margin-bottom: 20px;">
+                                    <h3>Doação em Dinheiro</h3>
+                                    <p class="text-center">Você pode contribuir com doações monetárias através de cartão de crédito ou PIX. <br />Toda doação é essencial para continuarmos o nosso trabalho.</p>
+                                    <button id="btn_actionDoar" class="btn btn-common btn-custom" style=" color: white; border: none; padding: 10px 20px; cursor: pointer;">
+                                        Doar <i class="fas fa-heart"></i>
+                                    </button>
+                                </div>
+
+                                <hr>
+
+                                <!-- Segunda Opção: Contribuir com Rações e Acessórios -->
+                                <div class="doacao-opcao" style="text-align: center;">
+                                    <h3>Contribuição com Rações e Acessórios</h3>
+                                    <p class="text-center">Se preferir, pode contribuir com doações de rações, acessórios para pets, brinquedos, roupas, ou outros itens que ajudem a melhorar a vida dos animais que cuidamos.</p>
+                                    <button id="btn_entreEmContato" class="btn btn-primary btn-custom" style="background-color: #007bff; color: white; border: none; padding: 10px 20px; cursor: pointer;">
+                                        Entre em Contato <i class="fas fa-paper-plane"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Welcome Section End -->
+
+    <hr />
+
+    <!-- work-counter area -->
+    <section class="work-counter-section section-padding">
+        <div class="container">
+            <div class="row">
+                <!-- Single Counter -->
+                <div class="col-md-3 col-sm-6 work-counter-widget text-center wow animated fadeInUp" data-wow-delay=".2s">
+                    <div class="counter">
+                        <div class="icon"><i class="material-icons mdi mdi-check-all"></i></div>
+                        <div class="timer">58</div>
+                        <p>Projetos</p>
+                    </div>
+                </div>
+                <!-- Single Counter -->
+                <div class="col-md-3 col-sm-6 work-counter-widget text-center wow animated fadeInUp" data-wow-delay=".3s">
+                    <div class="counter">
+                        <div class="icon"><i class="material-icons mdi mdi-clock"></i></div>
+                        <div class="timer">853</div>
+                        <p>Horas trabalhadas</p>
+                    </div>
+                </div>
+                <!-- Single Counter -->
+                <div class="col-md-3 col-sm-6 work-counter-widget text-center wow animated fadeInUp" data-wow-delay=".4s">
+                    <div class="counter">
+                        <div class="icon"><i class="material-icons mdi mdi-account-multiple-outline"></i></div>
+                        <div class="timer">4</div>
+                        <p>Membros da ONG</p>
+                    </div>
+                </div>
+                <!-- Single Counter -->
+                <div class="col-md-3 col-sm-6 work-counter-widget text-center wow animated fadeInUp" data-wow-delay=".5s">
+                    <div class="counter">
+                        <div class="icon"><i class="fas fa-paw"></i></div>
+                        <div class="timer">137</div>
+                        <p>Vidas mudadas</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- work-counter area end -->
+    <!-- INFO MEMBROS DA ONG -->
+    <div class="testimonial section-padding">
+        <div class="container">
+            <div class="row">
+                <!-- Testimonial section  -->
+                <div class="testimonials-carousel owl-carousel">
+                    <div class="item">
+                        <div class="testimonial-item">
+                            <div class="datils">
+                                <h5>Daniel Neris</h5>
+                                <span>Developer Full Stack</span>
+                                <p>
+                                    "Um desenvolvedor junior apaixonado por tecnologia e inovação. Com apenas 24 anos e 2 anos de experiência na área, já conquistei grandes desafios e aprendi muito ao longo do caminho.
+                                    Desde cedo, fui fascinado pelo mundo da programação e resolvi seguir carreira nessa área. Hoje, estou comprometido em entregar soluções criativas, eficazes e personalizadas para os meus clientes, superando expectativas e construindo relacionamentos duradouros."
+                                </p>
+                            </div>
+                            <div class="img">
+                                <a href="#"><img class="img-fluid" src="images/Dneris.jpg" alt=""></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="testimonial-item">
+                            <div class="datils">
+                                <h5>Leonardo Lira</h5>
+                                <span>Developer Back-end</span>
+                                <p>
+                                    "Desde de sempre fui curioso por tecnologia, acho que o meu gosto por jogos acabou me ajudando a descobrir a área de programação e acabei gostando muito. Por conta disso, fui atrás de fazer cursos para me especializar, dentro da área de programação me aproximei do back-end onde atualmente estou procurando uma vaga na área."
+                                </p>
+                            </div>
+                            <div class="img">
+                                <a href="#"><img class="img-fluid" src="images/leoFacul.jpg" alt=""></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="testimonial-item">
+                            <div class="datils">
+                                <h5>João Guimarôes</h5>
+                                <span>Product Owner</span>
+                                <p>"Sempre amei os animais, a Helping Animals é não só uma paixão, é a realização de um sonho."</p>
+                            </div>
+                            <div class="img">
+                                <a href="#"><img class="img-fluid" src="images/joaoFacul.png" alt=""></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="testimonial-item">
+                            <div class="datils">
+                                <h5>Zaiin Lieb</h5>
+                                <span>Stakeholder</span>
+                                <p>"Sempre fui muito próximo de animais de estimação, poder fazer parte desse projeto é gratificante para mim. <br />Agradeço aos meus colegas que participaram desse trabalho especial."</p>
+                            </div>
+                            <div class="img">
+                                <a href="#"><img class="img-fluid" src="images/zainFacul.jpeg" alt=""></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- INFO MEMBROS DA ONG -->
+    <!-- DIV ANIMAIS -->
+    <section id="animalsHelped" class="Material-blog-section section-padding">
+        <div class="container">
+            <div class="row">
+                <!-- Section Titile -->
+                <div class="col-md-12 wow animated fadeInLeft" data-wow-delay=".2s">
+                    <h1 class="">Vidas de animais transformadas</h1>
+                    <hr />
+                </div>
+            </div>
+
+            <div class="row">
+                <!-- Single Article -->
+                <div class="col-md-6 col-lg-4 col-xl-4 d-flex align-items-stretch">
+                    <article class="single-blog-post d-flex flex-column">
+                        <!-- Featured Image -->
+                        <div class="featured-image">
+                            <a href="#">
+                                <img src="images/pets/Thor.jpg" class="img-fluid" alt="">
+                            </a>
+                        </div>
+                        <!-- Post Meta -->
+                        <div class="post-meta flex-grow-1 d-flex flex-column">
+                            <!-- Title -->
+                            <a href="blog-single.html"><h2 class="subtitle">O Resgate de Max</h2></a>
+                            <p>Max, um labrador que foi encontrado amarrado em uma árvore em um terreno baldio. Recebemos uma denúncia anônima sobre um cachorro em estado de abandono e fomos imediatamente ao local. Ao chegarmos, encontramos Max magro, desidratado e com feridas nas patas. Ele estava assustado, mas bastou um pouco de paciência para que confiasse em nossa equipe. Após ser levado para a sede da ONG, Max recebeu atendimento veterinário, tratamento para desnutrição e feridas, e hoje vive feliz em um lar amoroso.</p>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Single Article -->
+                <div class="col-md-6 col-lg-4 col-xl-4 d-flex align-items-stretch">
+                    <article class="single-blog-post d-flex flex-column">
+                        <!-- Featured Image -->
+                        <div class="featured-image">
+                            <a href="#">
+                                <img src="images/pets/cat.png" class="img-fluid" alt="">
+                            </a>
+                        </div>
+                        <!-- Post Meta -->
+                        <div class="post-meta flex-grow-1 d-flex flex-column">
+                            <!-- Title -->
+                            <a href="blog-single.html"><h2 class="subtitle">A Superação de Mimi</h2></a>
+                            <p>Mimi foi encontrada em uma garagem abandonada, magra, suja e com uma pata quebrada. A denúncia veio de uma vizinha que a ouvia miar incessantemente em busca de ajuda. Quando chegamos, percebemos que ela estava com muito medo, mas um pouco de comida e palavras calmas a convenceram a sair do esconderijo. Mimi foi levada ao veterinário, onde passou por uma cirurgia para corrigir a fratura e recebeu tratamento para uma infecção respiratória. Depois de semanas de recuperação na sede da ONG, Mimi revelou sua personalidade carinhosa e brincalhona. Hoje, ela vive em um lar cheio de amor, onde é tratada como uma verdadeira princesa.</p>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Single Article -->
+                <div class="col-md-6 col-lg-4 col-xl-4 d-flex align-items-stretch">
+                    <article class="single-blog-post d-flex flex-column">
+                        <!-- Featured Image -->
+                        <div class="featured-image">
+                            <a href="#">
+                                <img src="images/pets/Luna.jpg" class="img-fluid" alt="">
+                            </a>
+                        </div>
+                        <!-- Post Meta -->
+                        <div class="post-meta flex-grow-1 d-flex flex-column">
+                            <!-- Title -->
+                            <a href="blog-single.html"><h2 class="subtitle">O Milagre de Luna</h2></a>
+                            <p>Luna, uma cadelinha de pequeno porte, foi encontrada dentro de uma caixa de papelão perto de um lixão. Quando a encontramos, estava extremamente fraca e cheia de carrapatos. O cenário era desolador, mas nossa equipe agiu rápido. Após ser resgatada, Luna foi internada em uma clínica veterinária para receber cuidados intensivos. A cadelinha não só se recuperou totalmente, como também ganhou uma nova chance. Foi adotada por uma família que hoje compartilha sua história nas redes sociais, mostrando como Luna se transformou em uma cachorrinha cheia de energia e amor.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!-- DIV ANIMAIS -->
+
+    <hr />
+
+    <!-- CONTATE-NOS -->
+    <section class="Material-contact-section section-padding section-dark" id="contato">
+        <div class="container">
+            <div class="row">
+                <!-- Section Titile -->
+                <div class="col-md-12 wow animated fadeInLeft" data-wow-delay=".2s">
+                    <h1 class="">Contate-nos</h1>
+                </div>
+            </div>
+            <div class="row">
+                <!-- Section Titile -->
+                <div class="col-md-6 mt-3 contact-widget-section2 wow animated fadeInLeft" data-wow-delay=".2s">
+                    <p>
+                        Se você deseja fazer uma doação com rações, acessórios e entre outros, nos mande uma mensagem combinando o local de retirada.<br />
+                        Tem alguma dúvida, sugestão ou quer saber mais sobre como ajudar nossa causa?
+                        Estamos aqui para ajudar! <br />
+                        Envie uma mensagem, e nossa equipe entrará em contato o mais breve possível.
+                        Juntos, podemos fazer a diferença na vida de muitos animais.
+                    </p>
+
+                    <div class="find-widget">
+                        <a href="#"><i class="material-icons mdi mdi-map-marker"></i>Av. Professor Luiz Ignácio Anhaia Mello, 1363 - Vila Prudente</a>
+                    </div>
+                    <div class="find-widget">
+                        <a href="#"><i class="material-icons mdi mdi-phone"></i>+55 4002-8922</a>
+                    </div>
+                    <div class="find-widget">
+                        <a href="#"><i class="material-icons mdi mdi-email-open mr-3"></i> helpinganimals567@gmail.com</a>
+                    </div>
+                    <div class="find-widget">
+                        <a href="#"><i class="material-icons mdi mdi-clock"></i> Seg/Sab 09:30 às 22h</a>
+                    </div>
+                </div>
+                <!-- contact form -->
+                <div class="col-md-6 wow animated fadeInRight" data-wow-delay=".2s">
+
+                    <!-- Name -->
+                    <div class="form-group label-floating">
+                        <label class="control-label" for="name">Nome</label>
+                        <input class="form-control" id="name" type="text" name="name" required data-error="Por favor insira seu nome e sobrenome">
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    <!-- email -->
+                    <div class="form-group label-floating">
+                        <label class="control-label" for="email">Email</label>
+                        <input class="form-control" id="email" type="email" name="email" required data-error="Por favor, insira seu e-mail">
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    <!-- Subject -->
+                    <div class="form-group label-floating">
+                        <label class="control-label">Assunto</label>
+                        <input class="form-control" id="msg_subject" type="text" name="subject" required data-error="Por favor, insira o assunto da sua mensagem">
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    <!-- Message -->
+                    <div class="form-group label-floating">
+                        <label for="message" class="control-label">Mensagem</label>
+                        <textarea class="form-control" rows="3" id="message" name="message" required data-error="Escreva sua mensagem"></textarea>
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    <!-- Form Submit -->
+                    <div class="form-submit mt-5">
+                        <button class="btn btn-common" type="button" id="btn_msg">Enviar mensagem <i class="fas fa-paper-plane"></i></button>
+                        <div id="msgSubmit" class="h3 text-center hidden"></div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- CONTATE-NOS -->
+    <!--Footer-->
+    <footer class="page-footer center-on-small-only  pt-0 footer-widget-container">
+        <!--Footer Links-->
+        <div class="container pt-5 mb-5">
+            <div class="row">
+                <!--First column-->
+                <div class="col-md-6 col-lg-3 col-xl-3 footer-contact-widget">
+                    <h3 class="footer-title">Sobre</h3>
+                    <p>
+                        Um trabalho voltado para os bichinhos.
+                        Realizamos ações de resgate de situação de maus tratos, controle de natalidade, retirada de rua e muitas outras medidas dedicadas aos pets.
+                    </p>
+                </div>
+                <!--/.First column-->
+                <!--/.Second column-->
+                <div class="col-md-6 col-lg-3 col-xl-3 footer-contact-widget">
+                    <h3 class="footer-title">Redes sociais</h3>
+                    <div class="d-flex flex-column justify-content-end h-100">
+                        <ul class="list-unstyled mb-5 pb-4">
+                            <li>
+                                <a href="#"><i class="mdi mdi-facebook"></i></a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="mdi mdi-twitter"></i></a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="mdi mdi-dribbble"></i></a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="mdi mdi-github-circle"></i></a>
+                            </li>
+                            <li>
+                                <a href="https://www.youtube.com/@HelpingAnimals-c8k" title="YouTube">
+                                    <i class="mdi mdi-youtube-play"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+
+                <!--/.Second column-->
+            </div>
+        </div>
+        <!--/.Footer Links-->
+        <!-- Copyright-->
+        <div class="footer-copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <p>&copy; 2024 Helping Animals - Todos os direitos reservados. <i class="fas fa-paw"></i></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--/.Copyright -->
+
+    </footer>
+    <!--/.Footer-->
+    <!-- Back To Top -->
+    <a href="#" class="back-to-top">
+        <div class="ripple-container"></div>
+        <i class="mdi mdi-arrow-up">
+        </i>
+    </a>
+
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="loader" id="loader-1"></div>
+    </div>
+    <!-- End Preloader -->
+    <!-- Modal Bootstrap -->
+    <div class="modal fade" id="paymentModal" tabindex="-1" role="dialog" aria-labelledby="paymentModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="paymentModalLabel">Escolha sua Forma de Pagamento</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="container mt-5">
+                    <div class="form-check-inline ml-5">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="doacao" id="anonymo" value="anonymo" checked>
+                            <label class="form-check-label" for="anonymo">Doar anonimamente</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="doacao" id="identificar" value="identificar">
+                            <label class="form-check-label" for="identificar">Identificar-me</label>
+                        </div>
+                    </div>
+
+                    <div id="nome-container" class="d-none mt-4">
+                        <div class="form-group">
+                            <label for="nome">Nome:</label>
+                            <input type="text" class="form-control" id="nomeDoacao" name="nome">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-body">
+                    <div class="instructions">
+                        <p>Por favor, escolha uma das opções de pagamento abaixo para prosseguir:</p>
+                    </div>
+
+                    <div class="payment-options">
+                        <label for="option-card">
+                            <input type="radio" name="payment" id="option-card" onclick="showPaymentForm('card')">
+                            Cartão
+                        </label>
+                        <label for="option-pix">
+                            <input type="radio" name="payment" id="option-pix" onclick="showPaymentForm('pix')">
+                            PIX
+                        </label>
+                    </div>
+
+                    <!-- Formulário para Pagamento com Cartão -->
+                    <div id="card-form" class="payment-form">
+                        <h3>Dados de pagamento</h3>
+                        <div class="form-group">
+                            <label for="card-number">Número do Cartão</label>
+                            <input type="text" id="card-number" class="form-control" placeholder="1234 5678 9012 3456">
+                        </div>
+                        <div class="form-group">
+                            <label for="card-holder">Nome no Cartão</label>
+                            <input type="text" id="card-holder" class="form-control" placeholder="Nome Completo">
+                        </div>
+                        <div class="form-group">
+                            <label for="expiry-date">Data de Validade</label>
+                            <input type="text" id="expiry-date" class="form-control" placeholder="MM/AA">
+                        </div>
+                        <div class="form-group">
+                            <label for="cvv">CVV</label>
+                            <input type="text" id="cvv" class="form-control" placeholder="123">
+                        </div>
+                        <button class="btn btn-submit text-white">Doar com Cartão</button>
+                    </div>
+
+                    <!-- QR Code para PIX -->
+                    <div id="pix-qrcode" class="qrcode-container">
+                        <h3>Doar com PIX</h3>
+                        <div>
+                            <img id="qrcode" src="" alt="QR Code para pagamento PIX">
+                        </div>
+                        <p>Use o aplicativo do seu banco para escanear o QR Code.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Optional JavaScript -->
+    <script src="assets/js/jquery-min.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/controller.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+
+    <script src="assets/js/jquery.mixitup.min.js"></script>
+    <script src="assets/js/jquery.inview.js"></script>
+    <script src="assets/js/jquery.counterup.min.js"></script>
+    <script src="assets/js/scroll-top.js"></script>
+    <script src="assets/js/smoothscroll.js"></script>
+    <script src="assets/js/material.min.js"></script>
+    <script src="assets/js/ripples.min.js"></script>
+    <script src="assets/js/owl.carousel.min.js"></script>
+    <script src="assets/js/form-validator.min.js"></script>
+    <script src="assets/js/contact-form-script.min.js"></script>
+    <script src="assets/js/wow.js"></script>
+    <script src="assets/js/jquery.vide.js"></script>
+    <script src="assets/js/jquery.magnific-popup.min.js"></script>
+    <script src="assets/js/jquery.slicknav.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</body>
+</html>
